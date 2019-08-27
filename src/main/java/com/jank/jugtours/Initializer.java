@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.util.Collections;
-import java.util.stream.Stream;
 
 @Component
 class Initializer implements CommandLineRunner {

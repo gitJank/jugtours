@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2684f0e5-22a5-47f9-9527-566f7c44d64c" name="Default Changelist" comment="" />
+    <list default="true" id="2684f0e5-22a5-47f9-9527-566f7c44d64c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jank/jugtours/Initializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jank/jugtours/Initializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jank/jugtours/web/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jank/jugtours/web/GroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jank/jugtours/JugtoursApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jank/jugtours/GroupRepositoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jank/jugtours/Initializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jank/jugtours/Initializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jank/jugtours/web/GroupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jank/jugtours/web/GroupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jank/jugtours/JugtoursApplicationTests.class" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +24,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Q0pwajrBPFPERklTUWE1fLUfo0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
@@ -31,7 +45,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.GroupRepositoryIntegrationTest">
     <configuration name="JugtoursApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jank.jugtours.JugtoursApplication" />
       <module name="jugtours" />
@@ -45,8 +59,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GroupRepositoryIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jugtours" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jank.jugtours.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jank.jugtours" />
+      <option name="MAIN_CLASS_NAME" value="com.jank.jugtours.GroupRepositoryIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GroupRepositoryIntegrationTest" />
         <item itemvalue="Application.JugtoursApplication" />
       </list>
     </recent_temporary>
@@ -66,5 +96,16 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

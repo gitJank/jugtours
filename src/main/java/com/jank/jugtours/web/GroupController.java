@@ -4,6 +4,7 @@ import com.jank.jugtours.model.Group;
 import com.jank.jugtours.model.GroupRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,19 +15,17 @@ import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Optional;
 
+// TODO global cors configuration
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 class GroupController {
 
     private final Logger log = LoggerFactory.getLogger(GroupController.class);
+
+    @Autowired
     private GroupRepository groupRepository;
 
-    public GroupController(GroupRepository groupRepository) {
-        this.groupRepository = groupRepository;
-    }
-
-    // TODO global cors options
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/groups")
     Collection<Group> groups() {
         return groupRepository.findAll();
@@ -40,7 +39,6 @@ class GroupController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/group")
     ResponseEntity<Group> createGroup(@Valid @RequestBody Group group) throws URISyntaxException {
         log.info("Request to create group: {}", group);
@@ -56,7 +54,6 @@ class GroupController {
         return ResponseEntity.ok().body(result);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/group/{id}")
     public ResponseEntity<?> deleteGroup(@PathVariable Long id) {
         log.info("request to delete group: {}", id);
