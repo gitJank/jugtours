@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import { Popover, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
@@ -13,15 +14,23 @@ const useStyles = makeStyles(theme => ({
   },
   textbox: {
     width: "288px"
+  },
+  buttonArea: {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "100%",
+    marginTop: "8px"
   }
 }));
 
-const AddGroup = ({ anchorEl, handleClose }) => {
+const AddUpdateGroupPopover = ({ anchorEl, handleClose, selectedGroup }) => {
   const classes = useStyles();
   const [group, setGroup] = useState({});
-
   const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+
+  useEffect(() => {
+    setGroup({ ...selectedGroup });
+  }, [selectedGroup]);
 
   const handleChange = e => {
     setGroup({
@@ -30,22 +39,19 @@ const AddGroup = ({ anchorEl, handleClose }) => {
     });
   };
 
-  const handleSubmit = () => {
-    axios
-      .post("http://localhost:8080/api/group", {
-        ...group
-      })
-      .then(res => {
-        window.location = "/";
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  const handleSubmit = async () => {
+    const res = group.id
+      ? await axios.put(`http://localhost:8080/api/group/${group.id}`, {
+          ...group
+        })
+      : await axios.post("http://localhost:8080/api/group", { ...group });
+
+    res.data ? (window.location = "/") : console.log("SUBMIT ERROR: ", res);
   };
 
   return (
     <Popover
-      id={id}
+      id={open ? "simple-popover" : undefined}
       open={open}
       anchorEl={anchorEl}
       onClose={handleClose}
@@ -114,18 +120,39 @@ const AddGroup = ({ anchorEl, handleClose }) => {
           validators={["required"]}
           errorMessages={[""]}
         />
-        <Button
-          id="saveBtn"
-          className={classes.button}
-          type="submit"
-          color="primary"
-          variant="text"
-        >
-          Save
-        </Button>
+        <div className={classes.buttonArea}>
+          <Button
+            id="cancelBtn"
+            className={classes.button}
+            onClick={() => handleClose()}
+            color="primary"
+            variant="text"
+          >
+            Cancel
+          </Button>
+          <Button
+            id="saveBtn"
+            className={classes.button}
+            type="submit"
+            color="primary"
+            variant="contained"
+          >
+            Save
+          </Button>
+        </div>
       </ValidatorForm>
     </Popover>
   );
 };
 
-export default AddGroup;
+AddUpdateGroupPopover.propTypes = {
+  anchorEl: PropTypes.object,
+  handleClose: PropTypes.func.isRequired,
+  selectedGroup: PropTypes.object.isRequired
+};
+
+AddUpdateGroupPopover.defaultProps = {
+  anchorEl: null
+};
+
+export default AddUpdateGroupPopover;

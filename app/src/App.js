@@ -1,6 +1,8 @@
 import React from "react";
-import GroupList from "./Components/GroupList";
 import CssBaseline from "@material-ui/core/CssBaseline";
+
+import NavBar from "./Components/NavBar";
+import GroupList from "./Components/GroupList";
 import "./App.css";
 
 function App() {
@@ -8,6 +10,7 @@ function App() {
     <>
       <CssBaseline />
       <div className="App">
+        <NavBar />
         <GroupList />
       </div>
     </>

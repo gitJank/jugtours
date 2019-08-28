@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2684f0e5-22a5-47f9-9527-566f7c44d64c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Components/AddGroupPopover.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Components/GroupList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Components/GroupList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jank/jugtours/Initializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jank/jugtours/Initializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jank/jugtours/web/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jank/jugtours/web/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jank/jugtours/JugtoursApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jank/jugtours/GroupRepositoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jank/jugtours/Initializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jank/jugtours/Initializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jank/jugtours/web/GroupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jank/jugtours/web/GroupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jank/jugtours/JugtoursApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/jugtours.kotlin_module" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,10 +31,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1Q0pwajrBPFPERklTUWE1fLUfo0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
@@ -45,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GroupRepositoryIntegrationTest">
+  <component name="RunManager" selected="Application.JugtoursApplication">
     <configuration name="JugtoursApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jank.jugtours.JugtoursApplication" />
       <module name="jugtours" />
@@ -76,8 +89,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GroupRepositoryIntegrationTest" />
         <item itemvalue="Application.JugtoursApplication" />
+        <item itemvalue="JUnit.GroupRepositoryIntegrationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -102,7 +115,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

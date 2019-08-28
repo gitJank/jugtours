@@ -26,7 +26,6 @@ class Initializer implements CommandLineRunner {
         repository.save(new Group("Seattle JUG", "Square Circle", "Duisburg", "GA", "USA"));
         repository.save(new Group("Richmond JUG", "Broken Dreams Blvd.", "Lank Park", "MO", "USA"));
 
-
         Group djug = repository.findByName("Denver JUG");
         Event e = Event.builder().title("Full Stack Reactive")
                 .description("Reactive with Spring Boot + React")

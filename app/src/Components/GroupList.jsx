@@ -13,9 +13,15 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import Delete from "@material-ui/icons/DeleteForever";
 
-import AddGroupPopover from "./AddGroupPopover";
+import AddGroupPopover from "./AddUpdateGroupPopover";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
+  root: {
+    padding: "64px"
+  },
+  tableRow: {
+    cursor: "pointer"
+  },
   addButton: {
     width: "100%"
   },
@@ -27,70 +33,90 @@ const useStyles = makeStyles(theme => ({
 const GroupList = () => {
   const classes = useStyles();
   const [groups, setGroups] = useState([]);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [selectedGroup, setSelectedGroup] = useState({});
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const fetchData = async () => {
     const res = await axios.get("http://localhost:8080/api/groups");
     setGroups(res.data);
   };
 
-  const deleteGroup = id => {
+  const deleteGroup = (e, id) => {
+    e.stopPropagation();
     axios
       .delete(`http://localhost:8080/api/group/${id}`)
       .then(() => (window.location = "/"));
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const selectGroup = (e, group) => {
+    setSelectedGroup(group);
+    setAnchorEl(e.currentTarget);
+  };
+
+  const handleClose = () => {
+    setSelectedGroup({});
+    setAnchorEl(null);
+  };
 
   return (
-    <Paper>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Address</TableCell>
-            <TableCell align="right">City</TableCell>
-            <TableCell align="right">State</TableCell>
-            <TableCell align="right">Country</TableCell>
-            <TableCell align="right" />
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {groups.map(group => (
-            <TableRow key={group.name}>
-              <TableCell component="th" scope="row">
-                {group.name}
-              </TableCell>
-              <TableCell align="right">{group.address}</TableCell>
-              <TableCell align="right">{group.city}</TableCell>
-              <TableCell align="right">{group.state}</TableCell>
-              <TableCell align="right">{group.country}</TableCell>
-              <TableCell align="right">
-                <IconButton
-                  aria-label="delete"
-                  className={classes.deleteButton}
-                  onClick={() => deleteGroup(group.id)}
-                >
-                  <Delete />
-                </IconButton>
-              </TableCell>
+    <div className={classes.root}>
+      <Paper>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell align="right">Address</TableCell>
+              <TableCell align="right">City</TableCell>
+              <TableCell align="right">State</TableCell>
+              <TableCell align="right">Country</TableCell>
+              <TableCell align="right" />
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      <Button
-        onClick={e => setAnchorEl(e.currentTarget)}
-        className={classes.addButton}
-      >
-        Add New
-      </Button>
-      <AddGroupPopover
-        anchorEl={anchorEl}
-        handleClose={() => setAnchorEl(null)}
-      />
-    </Paper>
+          </TableHead>
+          <TableBody>
+            {groups.map(group => (
+              <TableRow
+                hover
+                className={classes.tableRow}
+                key={`${group.name}-${group.id}`}
+                onClick={e => selectGroup(e, group)}
+              >
+                <TableCell component="th" scope="row">
+                  {group.name}
+                </TableCell>
+                <TableCell align="right">{group.address}</TableCell>
+                <TableCell align="right">{group.city}</TableCell>
+                <TableCell align="right">{group.state}</TableCell>
+                <TableCell align="right">{group.country}</TableCell>
+                <TableCell align="right">
+                  <IconButton
+                    aria-label="delete"
+                    className={classes.deleteButton}
+                    onClick={e => deleteGroup(e, group.id)}
+                  >
+                    <Delete />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <Button
+          onClick={e => setAnchorEl(e.currentTarget)}
+          className={classes.addButton}
+        >
+          Add New
+        </Button>
+        <AddGroupPopover
+          anchorEl={anchorEl}
+          handleClose={() => handleClose()}
+          selectedGroup={selectedGroup}
+        />
+      </Paper>
+    </div>
   );
 };
 
