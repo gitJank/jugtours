@@ -14,10 +14,14 @@ import { makeStyles } from "@material-ui/styles";
 import Delete from "@material-ui/icons/DeleteForever";
 
 import AddGroupPopover from "./AddUpdateGroupPopover";
+import { getUrl } from "../utils/api.utils";
 
 const useStyles = makeStyles(() => ({
   root: {
     padding: "64px"
+  },
+  paper: {
+    overflowX: "auto"
   },
   tableRow: {
     cursor: "pointer"
@@ -36,20 +40,20 @@ const GroupList = () => {
   const [selectedGroup, setSelectedGroup] = useState({});
   const [anchorEl, setAnchorEl] = useState(null);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const url = getUrl();
 
-  const fetchData = async () => {
-    const res = await axios.get("http://jugtours.cfapps.io/api/groups");
-    setGroups(res.data);
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(`${url}/groups`);
+      setGroups(res.data);
+    };
+
+    fetchData();
+  }, [url]);
 
   const deleteGroup = (e, id) => {
     e.stopPropagation();
-    axios
-      .delete(`http://jugtours.cfapps.io/api/group/${id}`)
-      .then(() => (window.location = "/"));
+    axios.delete(`${url}/group/${id}`).then(() => (window.location = "/"));
   };
 
   const selectGroup = (e, group) => {
@@ -64,7 +68,7 @@ const GroupList = () => {
 
   return (
     <div className={classes.root}>
-      <Paper>
+      <Paper className={classes.paper}>
         <Table>
           <TableHead>
             <TableRow>

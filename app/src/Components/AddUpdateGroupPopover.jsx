@@ -5,6 +5,8 @@ import { Popover, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 
+import { getUrl } from "../utils/api.utils";
+
 const useStyles = makeStyles(theme => ({
   form: {
     display: "flex",
@@ -40,11 +42,13 @@ const AddUpdateGroupPopover = ({ anchorEl, handleClose, selectedGroup }) => {
   };
 
   const handleSubmit = async () => {
+    const url = getUrl();
+
     const res = group.id
-      ? await axios.put(`http://jugtours.cfapps.io/api/group/${group.id}`, {
+      ? await axios.put(`${url}/group/${group.id}`, {
           ...group
         })
-      : await axios.post("http://jugtours.cfapps.io/api/group", { ...group });
+      : await axios.post(`${url}/group`, { ...group });
 
     res.data ? (window.location = "/") : console.log("SUBMIT ERROR: ", res);
   };
