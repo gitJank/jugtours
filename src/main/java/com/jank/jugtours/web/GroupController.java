@@ -16,7 +16,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 // TODO global cors configuration
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://jugtours.cfapps.io")
 @RestController
 @RequestMapping("/api")
 class GroupController {

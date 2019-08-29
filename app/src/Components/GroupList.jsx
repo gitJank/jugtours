@@ -41,14 +41,14 @@ const GroupList = () => {
   }, []);
 
   const fetchData = async () => {
-    const res = await axios.get("http://localhost:8080/api/groups");
+    const res = await axios.get("http://jugtours.cfapps.io/api/groups");
     setGroups(res.data);
   };
 
   const deleteGroup = (e, id) => {
     e.stopPropagation();
     axios
-      .delete(`http://localhost:8080/api/group/${id}`)
+      .delete(`http://jugtours.cfapps.io/api/group/${id}`)
       .then(() => (window.location = "/"));
   };
 

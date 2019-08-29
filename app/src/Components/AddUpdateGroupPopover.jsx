@@ -41,10 +41,10 @@ const AddUpdateGroupPopover = ({ anchorEl, handleClose, selectedGroup }) => {
 
   const handleSubmit = async () => {
     const res = group.id
-      ? await axios.put(`http://localhost:8080/api/group/${group.id}`, {
+      ? await axios.put(`http://jugtours.cfapps.io/api/group/${group.id}`, {
           ...group
         })
-      : await axios.post("http://localhost:8080/api/group", { ...group });
+      : await axios.post("http://jugtours.cfapps.io/api/group", { ...group });
 
     res.data ? (window.location = "/") : console.log("SUBMIT ERROR: ", res);
   };

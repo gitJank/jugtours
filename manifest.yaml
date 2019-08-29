@@ -1,0 +1,7 @@
+---
+applications:
+  - name: jugtours
+    path: target/jugtours-0.0.1-SNAPSHOT.jar
+    command:
+    buildpacks:
+      - java_buildpack
