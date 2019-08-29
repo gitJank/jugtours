@@ -69,7 +69,7 @@ const GroupList = () => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <Table>
+        <Table data-testid="group-table">
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
